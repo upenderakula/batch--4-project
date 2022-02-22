@@ -1,0 +1,34 @@
+<table style="margin: auto;">
+    <tr>
+        <td style="width: 500px;">     
+            <div class="card text-center">
+                <div class="card-header">
+                   <h2>course information</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="txtcourse" class="form-label">Name of the course</label>
+                        <input [value]="coursesModel.nameofcourse | uppercase"  id="txtcourse" name="txtcourse" readonly  type="text" class="form-control">
+                    </div >
+                    
+                    <div class="form-group">
+                        <label for="txtname" class="form-label">name of employee</label>
+                        <input  [value]="coursesModel.employeename" id="txtname" name="txtname" readonly  type="text" class="form-control">
+                    </div >
+                    <div class="form-group"> 
+                        <label for="txtduration" class="form-label">duration</label>
+                        <input  [value]="coursesModel.duration"  id="txtduration" name="txtduration" readonly  type="text" class="form-control">
+                    </div>
+                    <div class="form-group"> 
+                        <label for="txtfee" class="form-label">fee</label>
+                        <input   [value]="coursesModel.fee | currency:'INR'  " id="txtfee" name="txtfee"   type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <button type="button"  class="btn btn-primary">okay</button>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+

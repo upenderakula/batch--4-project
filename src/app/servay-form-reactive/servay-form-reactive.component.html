@@ -1,0 +1,182 @@
+<div class="card componentStyle">
+    <form [formGroup]="ServayForm" >
+        
+        <table border="1" style="margin: auto;">
+            <tr>
+                <td>
+                    <label class="form-label" for="txtname">NAME OF THE CANDIDATE</label>
+                </td>
+                <td colspan="2">
+                    <input formControlName="firstname" name="txtname" placeholder="first name" type="text" id="txtname" class="form-control">
+                </td>   
+            </tr>
+            <tr>
+                <td colspan="3">
+                <div *ngIf="ServayForm.get('firstname').touched && ServayForm.get('firstname').invalid" class="alert alert-danger" role="alert">
+                    please enter firstname..
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="txtfname" class="from-label" >FATHER NAME</label>
+                </td>
+                <td colspan="2">
+                    <input formControlName="fathername"  type="text" class="form-control" id="txtfname" placeholder="enter name">
+                </td>    
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div *ngIf="ServayForm.get('fathername').touched && ServayForm.get('fathername').invalid" class="alert alert-danger" role="alert">
+                        please enter name..
+                    </div>
+                    </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="txtemail" class="form-label">EMAIL ADDRESS</label>
+                </td>
+                <td colspan="2">
+                    <input formControlName="email"  type="text" class="form-control" id="txtemail" placeholder="enter email">
+                </td>   
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div *ngIf="ServayForm.get('email').touched && ServayForm.get('email').invalid" class="alert alert-danger" role="alert">
+                        please enter valid email..
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="form-label">GENDER</label>
+                </td>
+                <td style="padding-left: 200px;" colspan="2">
+                    <input type="radio" name="value" >Male
+                    <input type="radio" name="value">Female
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="form-label">ADDRESS</label>
+                </td>
+                <td colspan="2">
+                    <textarea cols="60" rows="2"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="form-label" for="txtmobile">MOBILE NUMBER</label>
+                </td>
+                <td colspan="2">
+                    <input formControlName="mobile" type="text" id="txtmobile" class="form-control" placeholder="enter mobile number">
+                </td>  
+            </tr>
+            <tr>
+                <td colspan="3">
+                <div *ngIf="ServayForm.get('mobile').touched && ServayForm.get('mobile').invalid" class="alert alert-danger" role="alert">
+                    please enter mobile number..
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="txtdate" class="form-label">DATE OF BIRTH</label> 
+                </td>
+                <td colspan="2">
+                    <input formControlName="date" type="date" class="form-control" id="txtdate" placeholder="date of birth">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div *ngIf="ServayForm.get('date').touched && ServayForm.get('date').invalid" class="alert alert-danger" role="alert">
+                        please enter D.O.B..
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Qualification Details</b></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="form-label">SSC</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="year of pass">
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="percentage/CGPA">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="form-label">INTER/DIPLOMA</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="year of pass">
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="percentage/CGPA">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="form-label">Degree/B.TECH</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="year of pass">
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="percentage/CGPA">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="form-label">Are you married</label>
+                </td>
+                <td style="padding-left: 200px;" colspan="2">
+                    <input type="radio" name="value">YES
+                    <input type="radio" name="value">NO
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="form-label">PHC</label>
+                </td>
+                <td style="padding-left: 200px;" colspan="2">
+                    <input type="radio" name="value">YES
+                    <input type="radio" name="value">NO
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="form-label">Degree/B.TECH specialization</label>
+                </td>
+                <td style="padding-left: 200px;" colspan="2">
+                    <select>
+                        <option>select</option>
+                        <option>EEE</option>
+                        <option>MECH</option>
+                        <option>CIVIL</option>
+                        <option>CSE</option>
+                        <option>B.COM</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left: 150px;" colspan="3">
+                    <input  type="checkbox" value="terms" >please verify above details,clickon chuckbox and then submit
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left: 300px;" colspan="3">
+                <input  type="button" class="btn btn-primary" value="submit">
+                </td>
+            </tr>
+        </table>
+        
+        
+    </form>
+</div>

@@ -1,0 +1,9 @@
+<div class="card componentStyle ">
+    <app-chield-output (newitemEvent)="additem($event)"></app-chield-output>
+    <ul class="list-group ">
+        <li class="list-group-item" *ngFor="let name of names" >
+            
+            <app-chield [nameofperson]="name"></app-chield>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,27 @@
+table{
+        
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    padding: auto;
+    
+    
+}
+.reg{
+    border-radius:30px;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+}
+h3{
+    color: tomato;
+    font-family:'Times New Roman', Times, serif;
+    font-style: italic;
+
+}
+div{
+    margin-left: 600px;
+    margin-bottom: 10px;
+}
+body{
+    margin-top: 200px;
+}

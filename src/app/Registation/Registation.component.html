@@ -1,0 +1,34 @@
+<table style="margin: auto;">
+    <tr>
+        <td style="width: 500px;">     
+            <div class="card text-center">
+                <div class="card-header">
+                    {{title}}
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="txtname" class="form-label">Name</label>
+                        <input [(ngModel)]='name'  id="txtname" name="txtname"   type="text" class="form-control">
+                    </div >
+                    
+                    <div class="form-group">
+                        <label for="txtEmail" class="form-label">Email Address</label>
+                        <input [(ngModel)]='emailaddress'  id="txtEmail" name="txtEmail"   type="text" class="form-control">
+                    </div >
+                    <div class="form-group"> 
+                        <label for="txtmobile" class="form-label">Mobile Number</label>
+                        <input [(ngModel)]='mobilenumber'  id="txtmobile" name="txtmobile"   type="text" class="form-control">
+                    </div>
+                    <div class="form-group"> 
+                        <label for="txtpassword" class="form-label">password</label>
+                        <input  [(ngModel)]='password'  id="txtpassword" name="txtpassword"   type="password" class="form-control">
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <button type="button" (click)="onsave()" class="btn btn-primary">save</button>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+

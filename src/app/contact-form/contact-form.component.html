@@ -1,0 +1,42 @@
+<div class="card componentStyle">
+    <form>
+    <div class="form-group">
+        <label for="txtfirstname" class="form-label">FIRST NAME</label>
+        <input #txtfirstname="ngModel" required ngModel name="txtfirstname" type="text" id="txtfirstname" class="form-control">
+    </div>
+        <div *ngIf="txtfirstname.touched && txtfirstname.invalid" class="alert alert-danger" role="alert">
+        please enter firstname..
+        </div>
+    <div class="form-group">
+        <label for="txtlastname" class="form-label">LAST NAME</label>
+        <input #txtlastname="ngModel" required ngModel name="txtlastname" type="text" id="txtlastname" class="form-control">
+    </div>
+        <div *ngIf="txtlastname.touched && txtlastname.invalid" class="alert alert-danger" role="alert">
+            please enter last name..
+        </div>
+    <div class="form-group">
+        <label for="txtemail" class="form-label">Email Address</label>
+        <input pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" #txtemail="ngModel" required ngModel name="txtemail" type="text" id="txtemail" class="form-control">
+    </div>
+        <div *ngIf="txtemail.touched && txtemail.invalid">
+            <div *ngIf="txtemail.errors['required']" class="alert alert-danger" role="alert">
+                please enter email address...
+            </div>
+            <div *ngIf="txtemail.errors['pattern']" class="alert alert-danger" role="alert">
+                please enter proper email address....
+            </div>
+        </div>
+    <div class="form-group">
+        <label  class="form-label">Gender</label>
+        <input type="radio"  name="value">Male
+        <input type="radio"  name="value">Female
+    </div>
+    <div class="form-group">
+        <label for="txtcomment" class="form-label">Write short note on yourself</label>
+        <textarea class="form-control" cols="15" rows="5" id="txtcomment"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="button" class="btn btn-primary" value="submit">
+    </div>
+    </form>
+</div>

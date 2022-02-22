@@ -1,0 +1,51 @@
+<div class="card componentStyle">
+        <form style="background: tan;" [formGroup]="loginform">
+            <table style="margin: auto;">
+                <div class="form-group">
+                        <b><label style="padding-left: 10px;" for="txtemail" class="form-label">enter your emailAddress</label></b>
+                        <input formControlName="email" type="text" id="txtemail" class="form-control">
+                </div>
+                    <div *ngIf="Email.touched && Email.invalid">
+                        <div *ngIf="Email.errors['required']" class="alert alert-danger">
+                            Please enter email..!
+                        </div>
+                        <div *ngIf="Email.errors['pattern']" class="alert alert-danger">
+                            Please enter proper email..!
+                        </div>
+                        <div *ngIf="Email.errors['notUnique']" class="alert alert-danger">
+                            Email address should be unique..!
+                        </div>
+                    </div>
+                
+                <div class="form-group">
+                    <b><label style="padding-left: 50px;" for="txtmobile" class="form-label">mobile number</label></b>
+                    <input formControlName="mobile" type="text" id="txtmobile" class="form-control">
+                </div>
+                    <div *ngIf="mobileNumber.touched && mobileNumber.invalid">
+                        <div *ngIf="mobileNumber.errors['required']" class="alert alert-danger">
+                            Please enter mobile number..!
+                        </div>
+                        <div *ngIf="mobileNumber.errors['containSpace']" class="alert alert-danger">
+                            Mobile number shouldn't contain space..! Occured at
+                            {{mobileNumber.errors['position']}}
+                    </div>
+                    </div>
+                <div class="form-group">
+                    <b><label style="padding-left: 70px;" for="txtpassword" class="form-label">password</label></b>
+                    <input formControlName="password" type="password" id="txtpassword" class="form-control">
+                </div>
+                    <div *ngIf="Password.touched && Password.invalid">
+                    <div *ngIf="Password.errors['required']" class="alert alert-danger">
+                        Please enter password..!
+                    </div>
+                    <div *ngIf="Password.errors['containSpace']" class="alert alert-danger">
+                        Password shouldn't contain space..! Occured at {{Password.errors['position']}}
+                    </div>
+                    </div>
+                <div  class="form-group" style="padding-left: 70px;" >
+                    <input  type="button" class="btn btn-primary" value="login">
+                </div>
+             </table>
+        </form>
+    
+</div>

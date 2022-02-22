@@ -1,0 +1,74 @@
+<div class="card componentStyle">
+  <div class="from-group" style="text-align: right;">
+    <a (click)="addpost()" data-bs-toggle="modal" data-bs-target='#mppost' class="btn btn-primary">
+      +ADD
+    </a>
+  </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#id</th>
+            <th scope="col">userid</th>
+            <th scope="col">title</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Api of APidata | paginate: { itemsPerPage: 5, currentPage: p }">
+            <th>{{Api.id}}</th>
+            <td>{{Api.userId}}</td>
+            <td>{{Api.title}}</td>
+            <td>
+              <button (click)="editPost(Api)" data-bs-toggle="modal" data-bs-target='#mppost' type="button" class="btn btn-success">
+                <i class="fa-solid fa-pen-clip"></i>
+              </button>&nbsp;
+              <button (click)="deletepost(Api.id)" type="button" class="btn btn-danger">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>&nbsp;
+              <a [routerLink]="['/api-data',Api.id]" [queryParams]="{UserId:Api.userId,title:Api.title}" class="btn btn-primary">
+                <i class="fa-solid fa-eye-slash"></i>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-center" colspan="4">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </td>
+          </tr>  
+        </tbody>
+      </table>
+      <div class="modal fade" id="mppost" aria-hidden="true" aria-labelledby="mppostTitle" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="mppostTitle">{{title}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div *ngIf="alertMessage" class="alert alert-success" role="alert">
+                        {{alertMessage}}
+                </div>
+                  <div class="form-group">
+                    <label class="form-label" for="txtuserid">user-id</label>
+                    <input name="txtuserid" [disabled]="title=='view a post'" type="number" id="txtuserid" class="form-control" [(ngModel)]="ApiModel.userId" >
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="txttitle">TITLE</label>
+                    <input name="txttitle" [disabled]="title=='view a post'" type="text" id="txttitle" class="form-control" [(ngModel)]="ApiModel.title" >
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="txtbody">BODY</label>
+                    <textarea cols="5" rows="3" name="txtbody" [disabled]="title=='view a post'" type="text" id="txtbody" class="form-control" [(ngModel)]="ApiModel.body"></textarea>
+            
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary"  data-bs-toggle="modal">close</button>
+              <button (click)="savePost()" [hidden]="title=='view a post'" type="button" class="btn btn-primary">save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
