@@ -26,22 +26,28 @@ import { ToastrModule } from 'ngx-toastr';
 import { TodosComponent } from './todos/todos.component';
 import { todoservice } from './todo.service';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { AuthGuard } from './auth-guard.service';
+import { UnAutharisedComponent } from './un-autharised/un-autharised.component';
+import { AdminAuthGuard } from './admin-auth-guard.service';
 
 
 let routes=[
   {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
   {path:'registaion',component:Registationcomponent},
-  {path:'courses',component:CoursesComponent},
-  {path:'input-output',component:ParentComponent},
-  {path:'contact form',component:ContactFormComponent},
-  {path:'servay-form T.D',component:ServayFormComponent},
-  {path:'servay-form reactive',component:ServayFormReactiveComponent},
+  {path:'courses',component:CoursesComponent,canActivate:[AuthGuard]},
+  {path:'input-output',component:ParentComponent,canActivate:[AuthGuard,AdminAuthGuard]},
+  {path:'contact form',component:ContactFormComponent,canActivate:[AuthGuard]},
+  {path:'servay-form T.D',component:ServayFormComponent,canActivate:[AuthGuard]},
+  {path:'servay-form reactive',component:ServayFormReactiveComponent,canActivate:[AuthGuard]},
   {path:'login form',component:LoginFormComponent},
   {path:'api-data/:id',component:PostDetailComponent},
   {path:'api-data',component:ApiDataComponent},
   {path:'todos/:id',component:TodoDetailComponent},
   {path:'todos',component:TodosComponent},
+  {path:'sign-in',component:SignInComponent},
+  {path:'un-autharised',component:UnAutharisedComponent},
   {path:'**',component:NotFoundComponent}
 ];
 @NgModule({
@@ -63,6 +69,8 @@ let routes=[
     PostDetailComponent,
     TodosComponent,
     TodoDetailComponent,
+    SignInComponent,
+    UnAutharisedComponent,
     
   ],
   imports: [
@@ -75,7 +83,7 @@ let routes=[
     BrowserAnimationsModule,
     ToastrModule.forRoot({positionClass:'toast-bottom-right'})
   ],
-  providers: [apiservice ,commonservice,todoservice],
+  providers: [apiservice ,commonservice,todoservice,AuthGuard,AdminAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,7 +35,13 @@
                 <li>
                     <a [routerLinkActive]="'active'" [routerLink]="'/todos'">todo</a>
                 </li>
-               
+                <li>
+                    <a [routerLinkActive]="'active'" [routerLink]="'/sign-in'">sign in</a>
+                </li>
+                <li>
+                    <a (click)="logout()" >logout</a>
+                </li>
+                
                 
             </ul>
         </td>
