@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'Registation',
@@ -14,15 +15,18 @@ export class Registationcomponent {
   mobilenumber:string='9502201587';
   password:string='kkmmkk';
 
-  constructor( private router:Router){
+  constructor( private router:Router,private tosterservice:ToastrService){
 
   }
 
   onsave(){
     console.log(this.name,this.emailaddress,this.mobilenumber,this.password);
     this.router.navigate(['/login form']);
+    this.tosterservice.success('registation successfull');
   }
+  
   onChange(inputcontrol:any){
     console.log(inputcontrol.value);
   }
+  
 }
